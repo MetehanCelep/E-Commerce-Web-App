@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Products>
+
+@{
+    ViewData["Title"] = "Erkek Giyim";
+}
+
+
+
+<style>
+    .card-container {
+        display: flex; /* Flexbox kullanarak yan yana dizme */
+        flex-wrap: wrap; /* Satır sığmazsa alt satıra geçme */
+        gap: 20px; /* Kartlar arasındaki boşluk */
+    }
+
+    .card {
+        width: 18rem;
+    }
+</style>
+
+<div class="card-container" style="margin-top:30px">
+    @foreach (var obj in Model)
+    {
+
+
+        @if (obj.Category == "MansWear")
+        {
+            <div class="card">
+                <img src="@obj.Image" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <strong class="card-title">@obj.Name</strong>
+                    <h5 class="card-title">@obj.Price TL</h5>
+                    <h5 class="card-title">@obj.Brand</h5>
+                    <a href="#" class="btn btn-primary">Sepete Ekle</a>
+                </div>
+            </div>
+        }
+
+
+    }
+</div>

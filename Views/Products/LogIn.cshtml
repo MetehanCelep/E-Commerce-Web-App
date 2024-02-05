@@ -1,0 +1,21 @@
+﻿@model LoginForm
+@{
+    ViewData["Title"] = "LogIn";
+}
+
+
+
+<form method="post" asp-controller="Products" asp-action="LogInStore">
+   
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label" style="margin-top:100px">E-Mail</label>
+        <input type="email" class="form-control" asp-for="Email" placeholder="name@example.com" style="color:black">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Şifre</label>
+        <input type="password" class="form-control" asp-for="Password" style="color:black">
+    </div>
+    
+    <input type="submit" class="btn btn-outline-success" value="Giriş Yap" />
+    
+</form>

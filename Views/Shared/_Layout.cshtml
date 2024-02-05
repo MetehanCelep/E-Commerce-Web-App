@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/Bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/E_TicaretSitesi.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a asp-controller="Home" asp-action="Index" class="navbar-brand">E-Ticaret Sitesi</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav me-auto">
+                        
+                        
+                        <li class="nav-item">
+                            <a asp-controller="Products" asp-action="ShowAll" style="button" class="nav-link">Ürünler</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Products" asp-action="AboutUs" style="button" class="nav-link" >Hakkımızda</a>
+                        </li>
+                        
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Kategoriler</a>
+                            <div class="dropdown-menu"> 
+                                <a  asp-controller="Products" asp-action="MansWear" class="dropdown-item" >Erkek Giyim</a>
+                                <a  asp-controller="Products" asp-action="WomansWear" class="dropdown-item">Kadın Giyim</a>
+                                <a  asp-controller="Products" asp-action="KidsWear" class="dropdown-item" >Çocuk Giyim</a>
+                                <a  asp-controller="Products" asp-action="Accesories" class="dropdown-item" >Aksesuarlar</a>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <form class="d-flex" asp-controller="Products" asp-action="SearchProduct">
+                        <input class="form-control me-sm-2" type="search"  placeholder="Ürün Arayın" style="color:black" >
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Ara</button>
+
+                    </form>
+                    <a asp-controller="Products" asp-action="LogIn" type="button" class="btn btn-outline-primary" style="margin-left:10px">Giriş Yap</a>
+                    <a asp-controller="Products" asp-action="SignUp" type="button" class="btn btn-outline-success" style="margin-left:10px">Üye Ol</a>
+                    <a asp-controller="Products" asp-action="Basket" class="bi bi-basket" style="font-size:40px;margin-left:10px;color:white"></a>
+                    
+                </div>
+                    
+            </div>
+        </nav>
+
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
